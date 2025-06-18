@@ -1,6 +1,6 @@
 "use client";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { BarChart3, AlertTriangle } from "lucide-react";
+import { BarChart3, AlertTriangle, ClipboardCopy } from "lucide-react";
 import blumBlumShub, { BBSResult } from "./bbs";
 import { Inputs } from "./inputsType";
 import analyzeBitFrequency from "./frequencyAnalysis";
@@ -205,6 +205,12 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => navigator.clipboard.writeText(result.bits)}
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-50 border border-indigo-200 rounded-lg hover:bg-indigo-100 transition-colors duration-200"
+                >
+                  <ClipboardCopy className="w-4 h-4 mr-2" /> Copiar Bits
+                </button>
                 <button
                   onClick={() => setShowAnalysis(!showAnalysis)}
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100"
